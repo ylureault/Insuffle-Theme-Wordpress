@@ -1,0 +1,86 @@
+/**
+ * Gutenberg Editor Styles
+ *
+ * Makes the Gutenberg editor match the front-end styling
+ *
+ * @package Insuffle
+ * @since 1.0.0
+ */
+
+/* Import main font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
+/* Editor wrapper */
+.editor-styles-wrapper {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333333;
+}
+
+/* Headings */
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1f3a8b;
+}
+
+.editor-styles-wrapper h1 { font-size: 2.5rem; }
+.editor-styles-wrapper h2 { font-size: 2rem; }
+.editor-styles-wrapper h3 { font-size: 1.5rem; }
+.editor-styles-wrapper h4 { font-size: 1.25rem; }
+.editor-styles-wrapper h5 { font-size: 1.125rem; }
+.editor-styles-wrapper h6 { font-size: 1rem; }
+
+/* Paragraphs */
+.editor-styles-wrapper p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+/* Links */
+.editor-styles-wrapper a {
+    color: #1f3a8b;
+    text-decoration: none;
+}
+
+.editor-styles-wrapper a:hover {
+    color: #162b68;
+}
+
+/* Buttons */
+.editor-styles-wrapper .wp-block-button__link {
+    background: linear-gradient(135deg, #1f3a8b 0%, #162b68 100%);
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+}
+
+.editor-styles-wrapper .wp-block-button.is-style-outline .wp-block-button__link {
+    background: transparent;
+    border: 2px solid #1f3a8b;
+    color: #1f3a8b;
+}
+
+/* Color palette classes */
+.editor-styles-wrapper .has-primary-color { color: #1f3a8b; }
+.editor-styles-wrapper .has-primary-background-color { background-color: #1f3a8b; }
+
+.editor-styles-wrapper .has-secondary-color { color: #ffde59; }
+.editor-styles-wrapper .has-secondary-background-color { background-color: #ffde59; }
+
+.editor-styles-wrapper .has-accent-color { color: #c3d1e4; }
+.editor-styles-wrapper .has-accent-background-color { background-color: #c3d1e4; }
+
+.editor-styles-wrapper .has-dark-color { color: #333333; }
+.editor-styles-wrapper .has-dark-background-color { background-color: #333333; }
+
+.editor-styles-wrapper .has-light-color { color: #ffffff; }
+.editor-styles-wrapper .has-light-background-color { background-color: #ffffff; }
