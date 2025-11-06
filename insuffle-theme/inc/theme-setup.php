@@ -118,29 +118,17 @@ function insuffle_register_widgets() {
         'after_title'   => '</h3>',
     );
 
-    // Footer widgets
+    // Footer widgets (matching old theme structure)
     register_sidebar( array_merge( $widget_args, array(
-        'name'        => __( 'Footer Colonne 1', 'insuffle' ),
-        'id'          => 'footer-1',
-        'description' => __( 'Zone widget footer - colonne 1', 'insuffle' ),
+        'name'        => __( 'Footer #1', 'insuffle' ),
+        'id'          => 'sidebar-1',
+        'description' => __( 'Première zone widget du footer', 'insuffle' ),
     ) ) );
 
     register_sidebar( array_merge( $widget_args, array(
-        'name'        => __( 'Footer Colonne 2', 'insuffle' ),
-        'id'          => 'footer-2',
-        'description' => __( 'Zone widget footer - colonne 2', 'insuffle' ),
-    ) ) );
-
-    register_sidebar( array_merge( $widget_args, array(
-        'name'        => __( 'Footer Colonne 3', 'insuffle' ),
-        'id'          => 'footer-3',
-        'description' => __( 'Zone widget footer - colonne 3', 'insuffle' ),
-    ) ) );
-
-    register_sidebar( array_merge( $widget_args, array(
-        'name'        => __( 'Footer Colonne 4', 'insuffle' ),
-        'id'          => 'footer-4',
-        'description' => __( 'Zone widget footer - colonne 4', 'insuffle' ),
+        'name'        => __( 'Footer #2', 'insuffle' ),
+        'id'          => 'sidebar-2',
+        'description' => __( 'Deuxième zone widget du footer', 'insuffle' ),
     ) ) );
 }
 add_action( 'widgets_init', 'insuffle_register_widgets' );

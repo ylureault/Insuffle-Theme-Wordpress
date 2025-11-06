@@ -1,54 +1,13 @@
     </div><!-- #content -->
 
+    <?php
+    // Display footer menus and widgets section (before main footer)
+    get_template_part( 'template-parts/footer-menus-widgets' );
+    ?>
+
     <footer id="site-footer" class="site-footer">
         <div class="container">
-
-            <?php if ( is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' ) || is_active_sidebar( 'footer-4' ) ) : ?>
-                <div class="footer-content">
-
-                    <?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-                        <div class="footer-column">
-                            <?php dynamic_sidebar( 'footer-1' ); ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
-                        <div class="footer-column">
-                            <?php dynamic_sidebar( 'footer-2' ); ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if ( is_active_sidebar( 'footer-3' ) ) : ?>
-                        <div class="footer-column">
-                            <?php dynamic_sidebar( 'footer-3' ); ?>
-                        </div>
-                    <?php endif; ?>
-
-                    <?php if ( is_active_sidebar( 'footer-4' ) ) : ?>
-                        <div class="footer-column">
-                            <?php dynamic_sidebar( 'footer-4' ); ?>
-                        </div>
-                    <?php endif; ?>
-
-                </div><!-- .footer-content -->
-            <?php endif; ?>
-
-            <div class="footer-bottom">
-
-                <?php
-                // Footer logo
-                $footer_logo_id = get_theme_mod( 'insuffle_footer_logo' );
-                if ( $footer_logo_id ) :
-                    $footer_logo_url = wp_get_attachment_image_url( $footer_logo_id, 'full' );
-                    if ( $footer_logo_url ) :
-                        ?>
-                        <img src="<?php echo esc_url( $footer_logo_url ); ?>"
-                             alt="<?php bloginfo( 'name' ); ?>"
-                             class="footer-logo">
-                        <?php
-                    endif;
-                endif;
-                ?>
+            <div class="footer-credits">
 
                 <p class="copyright">
                     <?php
@@ -66,31 +25,14 @@
                     ?>
                 </p>
 
-                <?php
-                // Footer menu
-                if ( has_nav_menu( 'footer' ) ) {
-                    wp_nav_menu(
-                        array(
-                            'theme_location' => 'footer',
-                            'menu_id'        => 'footer-menu',
-                            'container'      => 'nav',
-                            'container_class' => 'footer-navigation',
-                            'depth'          => 1,
-                            'fallback_cb'    => false,
-                        )
-                    );
-                }
-                ?>
+                <!-- Back to top link (inline with copyright) -->
+                <a href="#page" class="back-to-top-link" aria-label="<?php esc_attr_e( 'Retour en haut', 'insuffle' ); ?>">
+                    <?php esc_html_e( 'Haut de page', 'insuffle' ); ?> ↑
+                </a>
 
-            </div><!-- .footer-bottom -->
-
+            </div><!-- .footer-credits -->
         </div><!-- .container -->
     </footer><!-- #site-footer -->
-
-    <!-- Back to top button -->
-    <a href="#page" class="back-to-top" aria-label="<?php esc_attr_e( 'Retour en haut', 'insuffle' ); ?>">
-        ↑
-    </a>
 
 </div><!-- #page -->
 
