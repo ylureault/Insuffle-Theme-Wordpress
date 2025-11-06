@@ -70,6 +70,27 @@
             }
         });
 
+        // Dropdown menu toggle on mobile (click to expand)
+        const menuItemsWithChildren = document.querySelectorAll('.main-navigation .menu-item-has-children');
+
+        menuItemsWithChildren.forEach(function(menuItem) {
+            const link = menuItem.querySelector('a');
+            const submenu = menuItem.querySelector('ul');
+
+            if (link && submenu) {
+                link.addEventListener('click', function(e) {
+                    // Only prevent default on mobile (when menu is toggled)
+                    if (navigation && navigation.classList.contains('toggled')) {
+                        e.preventDefault();
+
+                        // Toggle submenu visibility
+                        const isVisible = submenu.style.display === 'flex';
+                        submenu.style.display = isVisible ? 'none' : 'flex';
+                    }
+                });
+            }
+        });
+
         // Sticky header on scroll
         const header = document.querySelector('.site-header');
         let lastScroll = 0;
