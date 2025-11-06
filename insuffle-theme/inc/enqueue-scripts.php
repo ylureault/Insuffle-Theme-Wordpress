@@ -38,6 +38,14 @@ function insuffle_enqueue_styles() {
         array( 'insuffle-style' ),
         INSUFFLE_VERSION
     );
+
+    // Gutenberg blocks CSS
+    wp_enqueue_style(
+        'insuffle-blocks',
+        INSUFFLE_THEME_URI . '/assets/css/blocks.css',
+        array( 'insuffle-style', 'insuffle-main' ),
+        INSUFFLE_VERSION
+    );
 }
 add_action( 'wp_enqueue_scripts', 'insuffle_enqueue_styles' );
 

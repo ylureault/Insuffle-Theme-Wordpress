@@ -1,0 +1,538 @@
+/**
+ * Custom Gutenberg Blocks Styles
+ *
+ * @package Insuffle
+ * @since 1.0.0
+ */
+
+/*--------------------------------------------------------------
+1. Utility Classes (tw-* classes)
+--------------------------------------------------------------*/
+
+/* Margin utilities */
+.tw-mb-0 { margin-bottom: 0 !important; }
+.tw-mt-0 { margin-top: 0 !important; }
+.tw-mt-2 { margin-top: 2rem !important; }
+.tw-mt-5 { margin-top: 5rem !important; }
+
+/* Column stacking */
+@media (max-width: 768px) {
+    .tw-cols-stack-sm .wp-block-column {
+        flex-basis: 100% !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .tw-cols-stack-md .wp-block-column {
+        flex-basis: 100% !important;
+    }
+}
+
+/* Card columns */
+.tw-cols-card .wp-block-column {
+    padding: 2rem;
+    border-radius: var(--border-radius-md);
+}
+
+.tw-cols-card-shadow .wp-block-column {
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.tw-cols-card-shadow .wp-block-column:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+/* Stretched media and links */
+.tw-stretched-media .wp-block-image img,
+.tw-stretched-media .wp-block-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tw-stretched-link {
+    position: relative;
+}
+
+.tw-stretched-link a::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    content: "";
+}
+
+/* Shadow utilities */
+.tw-shadow {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tw-hard-shadow,
+.is-style-tw-hard-shadow {
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.8);
+    border: 3px solid var(--dark);
+}
+
+/* Fixed width columns for galleries */
+.tw-fixed-cols figure.wp-block-image {
+    width: auto !important;
+}
+
+/*--------------------------------------------------------------
+2. Shape Decorations
+--------------------------------------------------------------*/
+
+/* Organic shapes */
+.tw-top-shape-organic::before,
+.tw-bottom-shape-organic::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: currentColor;
+    z-index: 0;
+}
+
+.tw-top-shape-organic {
+    position: relative;
+    padding-top: 120px;
+}
+
+.tw-top-shape-organic::before {
+    top: 0;
+    clip-path: ellipse(100% 100% at 50% 0%);
+}
+
+.tw-bottom-shape-organic {
+    position: relative;
+    padding-bottom: 120px;
+}
+
+.tw-bottom-shape-organic::after {
+    bottom: 0;
+    clip-path: ellipse(100% 100% at 50% 100%);
+}
+
+/* Halftone shapes */
+.tw-top-shape-halftone::before,
+.tw-bottom-shape-halftone::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background-image: radial-gradient(circle, currentColor 20%, transparent 20%);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.tw-top-shape-halftone {
+    position: relative;
+    padding-top: 100px;
+}
+
+.tw-top-shape-halftone::before {
+    top: 0;
+}
+
+.tw-bottom-shape-halftone {
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.tw-bottom-shape-halftone::after {
+    bottom: 0;
+}
+
+/*--------------------------------------------------------------
+3. Buttons - Neobrutalist Style
+--------------------------------------------------------------*/
+
+.wp-block-button__link,
+button,
+.button,
+input[type="button"],
+input[type="submit"] {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    background-color: var(--secondary);
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #000;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.wp-block-button__link:hover,
+button:hover,
+.button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+    background-color: #fff;
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+    box-shadow: 5px 5px 0px var(--secondary);
+}
+
+.wp-block-button__link:active,
+button:active,
+.button:active,
+input[type="button"]:active,
+input[type="submit"]:active {
+    background-color: #ffde00;
+    box-shadow: none;
+    transform: translateY(4px);
+}
+
+/* WordPress button adjustments */
+.wp-block-button:not(.is-style-outline) .wp-block-button__link:not(:hover) {
+    color: #000;
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link {
+    background-color: transparent;
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+}
+
+.wp-block-button.is-style-outline .wp-block-button__link:hover {
+    background-color: var(--secondary);
+    color: #000;
+}
+
+/*--------------------------------------------------------------
+4. Custom List Styles
+--------------------------------------------------------------*/
+
+/* Checkmark lists */
+.is-style-tw-checkmark,
+ul.is-style-tw-checkmark {
+    list-style: none;
+    padding-left: 0;
+}
+
+.is-style-tw-checkmark li,
+ul.is-style-tw-checkmark li {
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+
+.is-style-tw-checkmark li::before,
+ul.is-style-tw-checkmark li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: var(--secondary);
+    font-size: 1.2em;
+}
+
+/*--------------------------------------------------------------
+5. Image Styles
+--------------------------------------------------------------*/
+
+/* Border style for images */
+.is-style-tw-border img {
+    border: 5px solid var(--dark);
+    border-radius: var(--border-radius-md);
+}
+
+/*--------------------------------------------------------------
+6. Gallery Styles
+--------------------------------------------------------------*/
+
+.wp-block-gallery.has-nested-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.wp-block-gallery.has-nested-images figure.wp-block-image {
+    margin: 0;
+    width: auto !important;
+}
+
+.wp-block-gallery.has-nested-images img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+}
+
+/*--------------------------------------------------------------
+7. Bloc Chiffres (Stats Blocks)
+--------------------------------------------------------------*/
+
+.bloc-chiffres {
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 10px;
+}
+
+.bloc-chiffres:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.bloc-chiffres:hover {
+    transform: rotate(0deg) scale(1.12);
+    box-shadow: 0 0 25px rgba(100, 132, 174, 0.6);
+    z-index: 10;
+}
+
+.bloc-chiffres h3 {
+    margin-top: 0;
+}
+
+.bloc-chiffres p[style*="font-size:85px"] {
+    margin: 20px 0;
+    transition: color 0.3s ease;
+}
+
+.bloc-chiffres:hover p[style*="font-size:85px"] {
+    color: var(--primary);
+}
+
+/*--------------------------------------------------------------
+8. Media Text Blocks
+--------------------------------------------------------------*/
+
+.wp-block-media-text.is-style-tw-shadow {
+    transition: all 0.5s ease;
+    transform-origin: center;
+    overflow: hidden;
+}
+
+.wp-block-media-text.is-style-tw-shadow:hover {
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.wp-block-media-text.is-style-tw-shadow:hover .wp-block-media-text__content {
+    background-color: rgba(86, 119, 163, 0.1);
+}
+
+.wp-block-media-text.is-style-tw-shadow:hover .wp-block-media-text__content mark {
+    background-color: var(--secondary);
+}
+
+/*--------------------------------------------------------------
+9. Custom Service Columns (4 services)
+--------------------------------------------------------------*/
+
+.tw-cols-stack-md.tw-cols-card.tw-cols-card-shadow.tw-stretched-media.tw-stretched-link {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.tw-cols-stack-md.tw-cols-card.tw-cols-card-shadow.tw-stretched-media.tw-stretched-link > .wp-block-column {
+    transition: all 0.5s ease;
+    width: 24%;
+    transform-origin: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.tw-cols-stack-md.tw-cols-card.tw-cols-card-shadow.tw-stretched-media.tw-stretched-link > .wp-block-column:hover {
+    width: 31.2%;
+    transform: scale(1.1);
+    z-index: 2;
+    background-color: #5677A3;
+    color: #FFFFFF;
+}
+
+.tw-cols-stack-md.tw-cols-card.tw-cols-card-shadow.tw-stretched-media.tw-stretched-link > .wp-block-column:hover * {
+    color: #FFFFFF;
+}
+
+.tw-cols-stack-md.tw-cols-card.tw-cols-card-shadow.tw-stretched-media.tw-stretched-link > .wp-block-column.reduced-opacity {
+    opacity: 0.5;
+}
+
+.tw-cols-stack-md.tw-cols-card.tw-cols-card-shadow.tw-stretched-media.tw-stretched-link > .wp-block-column:hover mark {
+    background-color: #FFFFFF;
+    color: #5677A3;
+}
+
+/* Links inside service columns */
+.tw-cols-stack-md.tw-cols-card.tw-cols-card-shadow.tw-stretched-media.tw-stretched-link .wp-block-column a:not(.wp-block-button__link) {
+    display: inline-block;
+    background-color: var(--secondary);
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin: 5px 0;
+    position: relative;
+    overflow: hidden;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tw-cols-stack-md.tw-cols-card.tw-cols-card-shadow.tw-stretched-media.tw-stretched-link .wp-block-column a:not(.wp-block-button__link):hover {
+    background-color: #FFA500;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*--------------------------------------------------------------
+10. Text Utilities
+--------------------------------------------------------------*/
+
+/* Center large text blocks */
+p.has-text-align-center.has-large-font-size strong {
+    display: block;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p.has-text-align-center.has-large-font-size {
+    text-align: center;
+    width: 100%;
+}
+
+/* Mark elements with rotation */
+mark {
+    display: inline-block;
+    transform: rotate(-2deg);
+    padding: 0 5px;
+    background-color: var(--secondary);
+    color: var(--dark);
+}
+
+/*--------------------------------------------------------------
+11. Responsive Adjustments
+--------------------------------------------------------------*/
+
+@media (max-width: 992px) {
+    .tw-cols-stack-md.tw-cols-card.tw-cols-card-shadow.tw-stretched-media.tw-stretched-link {
+        flex-direction: column;
+    }
+
+    .tw-cols-stack-md.tw-cols-card.tw-cols-card-shadow.tw-stretched-media.tw-stretched-link > .wp-block-column {
+        width: 100% !important;
+    }
+
+    .tw-top-shape-organic,
+    .tw-bottom-shape-organic,
+    .tw-top-shape-halftone,
+    .tw-bottom-shape-halftone {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .tw-top-shape-organic::before,
+    .tw-bottom-shape-organic::after,
+    .tw-top-shape-halftone::before,
+    .tw-bottom-shape-halftone::after {
+        height: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .wp-block-gallery.has-nested-images {
+        flex-direction: column;
+    }
+
+    .wp-block-gallery.has-nested-images img {
+        height: 60px;
+    }
+
+    .bloc-chiffres {
+        transform: rotate(0deg) !important;
+        margin: 10px 0;
+    }
+
+    .bloc-chiffres:hover {
+        transform: scale(1.05) !important;
+    }
+}
+
+/*--------------------------------------------------------------
+12. Cover Block Enhancements
+--------------------------------------------------------------*/
+
+.wp-block-cover.has-parallax {
+    background-attachment: fixed;
+}
+
+.wp-block-cover__inner-container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/*--------------------------------------------------------------
+13. Video Block
+--------------------------------------------------------------*/
+
+.wp-block-video.alignfull video {
+    width: 100%;
+    height: auto;
+}
+
+/*--------------------------------------------------------------
+14. Decoration Effects
+--------------------------------------------------------------*/
+
+/* Shadow decoration */
+.tw-decoration-shadow {
+    position: relative;
+}
+
+.tw-decoration-shadow::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    right: -10px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    border-radius: inherit;
+}
+
+/*--------------------------------------------------------------
+15. Page Templates Styles
+--------------------------------------------------------------*/
+
+/* Full width template */
+.site-main--full-width {
+    padding: 0;
+}
+
+.entry-content--full-width {
+    max-width: 100%;
+}
+
+.entry-content--full-width > .alignfull {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+/* No title template - add extra spacing at top */
+body.page-template-template-no-title .entry-content {
+    padding-top: var(--spacing-lg);
+}
