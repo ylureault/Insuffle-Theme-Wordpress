@@ -710,7 +710,6 @@ strong, b {
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
-    margin-bottom: 3rem;
 }
 
 .footer-menu-wrapper,
@@ -760,7 +759,7 @@ strong, b {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 3rem;
     margin-top: 3rem;
-    padding-top: 3rem;
+    padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
@@ -999,6 +998,21 @@ strong, b {
 /*--------------------------------------------------------------
 13. Utilities
 --------------------------------------------------------------*/
+
+/* Reset list styles */
+.reset-list-style,
+.reset-list-style ul,
+.reset-list-style ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.reset-list-style li {
+    margin: 0;
+}
+
+/* Spacing utilities */
 .mt-0 { margin-top: 0; }
 .mt-1 { margin-top: var(--spacing-xs); }
 .mt-2 { margin-top: var(--spacing-sm); }
