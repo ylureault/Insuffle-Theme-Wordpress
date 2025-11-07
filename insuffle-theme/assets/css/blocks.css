@@ -83,71 +83,36 @@
 }
 
 /*--------------------------------------------------------------
-2. Shape Decorations
+2. Section Spacing & Separators
 --------------------------------------------------------------*/
 
-/* Organic shapes */
+/* Clean spacing between sections - NO WAVES */
+.wp-block-group.alignfull {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+}
+
+/* Optional: Simple line separator if needed */
+.section-separator {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(31, 58, 139, 0.2) 50%, transparent 100%);
+    margin: 4rem 0;
+}
+
+/* Deprecated wave classes - kept for compatibility but disabled */
+.tw-top-shape-organic,
+.tw-bottom-shape-organic,
+.tw-top-shape-halftone,
+.tw-bottom-shape-halftone {
+    /* Waves removed - clean modern design */
+}
+
 .tw-top-shape-organic::before,
-.tw-bottom-shape-organic::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: currentColor;
-    z-index: 0;
-}
-
-.tw-top-shape-organic {
-    position: relative;
-    padding-top: 120px;
-}
-
-.tw-top-shape-organic::before {
-    top: 0;
-    clip-path: ellipse(100% 100% at 50% 0%);
-}
-
-.tw-bottom-shape-organic {
-    position: relative;
-    padding-bottom: 120px;
-}
-
-.tw-bottom-shape-organic::after {
-    bottom: 0;
-    clip-path: ellipse(100% 100% at 50% 100%);
-}
-
-/* Halftone shapes */
+.tw-bottom-shape-organic::after,
 .tw-top-shape-halftone::before,
 .tw-bottom-shape-halftone::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 80px;
-    background-image: radial-gradient(circle, currentColor 20%, transparent 20%);
-    background-size: 20px 20px;
-    opacity: 0.3;
-    z-index: 0;
-}
-
-.tw-top-shape-halftone {
-    position: relative;
-    padding-top: 100px;
-}
-
-.tw-top-shape-halftone::before {
-    top: 0;
-}
-
-.tw-bottom-shape-halftone {
-    position: relative;
-    padding-bottom: 100px;
-}
-
-.tw-bottom-shape-halftone::after {
-    bottom: 0;
+    display: none !important;
 }
 
 /*--------------------------------------------------------------
@@ -278,35 +243,77 @@ ul.is-style-tw-checkmark li::before {
 }
 
 /*--------------------------------------------------------------
-7. Bloc Chiffres (Stats Blocks)
+7. Bloc Chiffres (Stats Blocks) - Fixed Heights & Alignment
 --------------------------------------------------------------*/
 
-.bloc-chiffres {
-    transition: all 0.3s ease;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px 10px;
-    border: 3px solid var(--primary);
+/* Parent container */
+.wp-block-columns.bloc-chiffres-container {
+    align-items: stretch;
 }
 
-.bloc-chiffres:hover {
+/* Individual stat blocks */
+.bloc-chiffres,
+.wp-block-column.bloc-chiffres {
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 0;
+    border: 2px solid rgba(31, 58, 139, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 320px; /* Fixed height for consistency */
+    padding: 2rem;
+    background: #fff;
+}
+
+.bloc-chiffres:hover,
+.wp-block-column.bloc-chiffres:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(31, 58, 139, 0.3);
-    z-index: 10;
+    box-shadow: 0 8px 24px rgba(31, 58, 139, 0.15);
     border-color: var(--secondary);
 }
 
 .bloc-chiffres h3 {
-    margin-top: 0;
+    margin: 0 0 1.5rem 0;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    text-align: center;
+    min-height: 3.5rem; /* Consistent title height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.bloc-chiffres p[style*="font-size:85px"] {
-    margin: 20px 0;
-    transition: color 0.3s ease;
+.bloc-chiffres p[style*="font-size:85px"],
+.bloc-chiffres p[style*="font-size: 85px"] {
+    margin: 1.5rem 0;
+    font-size: 4.5rem !important; /* Consistent number size */
+    line-height: 1;
+    font-weight: 800;
 }
 
-.bloc-chiffres:hover p[style*="font-size:85px"] {
+.bloc-chiffres:hover p[style*="font-size:85px"],
+.bloc-chiffres:hover p[style*="font-size: 85px"] {
     color: var(--primary);
+}
+
+/* Description text */
+.bloc-chiffres .has-small-font-size,
+.bloc-chiffres p.tw-mb-0 {
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Source citations */
+.bloc-chiffres p[style*="font-size:11px"],
+.bloc-chiffres p[style*="font-size: 11px"] {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.75rem !important;
 }
 
 /*--------------------------------------------------------------
@@ -410,14 +417,13 @@ p.has-text-align-center.has-large-font-size {
     width: 100%;
 }
 
-/* Mark/highlight elements */
+/* Mark/highlight elements - USE SPARINGLY (1 per section max) */
 mark {
     display: inline;
-    padding: 2px 8px;
-    background-color: var(--secondary);
-    color: var(--dark);
-    font-weight: 600;
-    border-radius: 3px;
+    padding: 3px 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(255, 222, 89, 0.3) 60%);
+    color: inherit;
+    font-weight: 700;
 }
 
 /*--------------------------------------------------------------
@@ -433,23 +439,26 @@ mark {
         width: 100% !important;
     }
 
-    .tw-top-shape-organic,
-    .tw-bottom-shape-organic,
-    .tw-top-shape-halftone,
-    .tw-bottom-shape-halftone {
-        padding-top: 60px;
-        padding-bottom: 60px;
+    /* Reduced section spacing on tablet */
+    .wp-block-group.alignfull {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
     }
 
-    .tw-top-shape-organic::before,
-    .tw-bottom-shape-organic::after,
-    .tw-top-shape-halftone::before,
-    .tw-bottom-shape-halftone::after {
-        height: 50px;
+    /* Stats blocks responsive */
+    .bloc-chiffres,
+    .wp-block-column.bloc-chiffres {
+        min-height: 280px;
     }
 }
 
 @media (max-width: 768px) {
+    /* Mobile section spacing */
+    .wp-block-group.alignfull {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
     .wp-block-gallery.has-nested-images {
         flex-direction: column;
     }
@@ -458,12 +467,22 @@ mark {
         height: 60px;
     }
 
-    .bloc-chiffres {
-        margin: 10px 0;
+    .bloc-chiffres,
+    .wp-block-column.bloc-chiffres {
+        margin: 1rem 0;
+        min-height: auto;
+        padding: 1.5rem;
     }
 
-    .bloc-chiffres:hover {
+    .bloc-chiffres:hover,
+    .wp-block-column.bloc-chiffres:hover {
         transform: translateY(-3px);
+    }
+
+    /* Smaller numbers on mobile */
+    .bloc-chiffres p[style*="font-size:85px"],
+    .bloc-chiffres p[style*="font-size: 85px"] {
+        font-size: 3rem !important;
     }
 }
 
