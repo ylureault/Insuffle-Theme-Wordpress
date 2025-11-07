@@ -333,30 +333,42 @@ strong, b {
     color: var(--secondary);
 }
 
-/* Dropdown Menus (Sub-menus) */
-.main-navigation ul ul {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    min-width: 220px;
-    background-color: var(--primary);
-    box-shadow: var(--shadow-lg);
-    border-radius: var(--border-radius-sm);
-    padding: 0.5rem 0;
-    margin-top: 0.5rem;
+/* Dropdown Menus (Sub-menus) - FORCE HIDE by default */
+.main-navigation ul ul,
+.main-navigation ul ul.sub-menu,
+.main-navigation .sub-menu {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    z-index: 1000 !important;
+    display: none !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+    min-width: 220px !important;
+    background-color: var(--primary) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border-radius: var(--border-radius-sm) !important;
+    padding: 0.5rem 0 !important;
+    margin-top: 0.5rem !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease !important;
 }
 
 .main-navigation li {
     position: relative;
 }
 
-.main-navigation li:hover > ul,
-.main-navigation li:focus-within > ul {
-    display: flex;
+/* Show submenu on hover - DESKTOP ONLY */
+@media (min-width: 769px) {
+    .main-navigation li:hover > ul,
+    .main-navigation li:focus-within > ul,
+    .main-navigation li:hover > .sub-menu,
+    .main-navigation li:focus-within > .sub-menu {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
 }
 
 .main-navigation ul ul li {
