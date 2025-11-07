@@ -151,7 +151,7 @@
 }
 
 /*--------------------------------------------------------------
-3. Buttons - Neobrutalist Style
+3. Buttons - Modern Professional Style
 --------------------------------------------------------------*/
 
 .wp-block-button__link,
@@ -160,19 +160,22 @@ button,
 input[type="button"],
 input[type="submit"] {
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 18px;
-    font-weight: bold;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 700;
     text-align: center;
     text-decoration: none;
     color: #000;
     background-color: var(--secondary);
-    border: 2px solid #000;
-    border-radius: 10px;
-    box-shadow: 5px 5px 0px #000;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(255, 222, 89, 0.4);
     transition: all 0.3s ease;
     cursor: pointer;
     line-height: 1.5;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 14px;
 }
 
 .wp-block-button__link:hover,
@@ -180,10 +183,9 @@ button:hover,
 .button:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
-    background-color: #fff;
-    color: var(--secondary);
-    border: 2px solid var(--secondary);
-    box-shadow: 5px 5px 0px var(--secondary);
+    background-color: #ffd000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 222, 89, 0.6);
 }
 
 .wp-block-button__link:active,
@@ -191,9 +193,8 @@ button:active,
 .button:active,
 input[type="button"]:active,
 input[type="submit"]:active {
-    background-color: #ffde00;
-    box-shadow: none;
-    transform: translateY(4px);
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(255, 222, 89, 0.4);
 }
 
 /* WordPress button adjustments */
@@ -205,11 +206,13 @@ input[type="submit"]:active {
     background-color: transparent;
     border: 2px solid var(--secondary);
     color: var(--secondary);
+    box-shadow: none;
 }
 
 .wp-block-button.is-style-outline .wp-block-button__link:hover {
     background-color: var(--secondary);
     color: #000;
+    box-shadow: 0 4px 14px rgba(255, 222, 89, 0.4);
 }
 
 /*--------------------------------------------------------------
@@ -279,21 +282,18 @@ ul.is-style-tw-checkmark li::before {
 --------------------------------------------------------------*/
 
 .bloc-chiffres {
-    transform: rotate(-2deg);
     transition: all 0.3s ease;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px 10px;
-}
-
-.bloc-chiffres:nth-child(even) {
-    transform: rotate(2deg);
+    border: 3px solid var(--primary);
 }
 
 .bloc-chiffres:hover {
-    transform: rotate(0deg) scale(1.12);
-    box-shadow: 0 0 25px rgba(100, 132, 174, 0.6);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(31, 58, 139, 0.3);
     z-index: 10;
+    border-color: var(--secondary);
 }
 
 .bloc-chiffres h3 {
@@ -410,13 +410,14 @@ p.has-text-align-center.has-large-font-size {
     width: 100%;
 }
 
-/* Mark elements with rotation */
+/* Mark/highlight elements */
 mark {
-    display: inline-block;
-    transform: rotate(-2deg);
-    padding: 0 5px;
+    display: inline;
+    padding: 2px 8px;
     background-color: var(--secondary);
     color: var(--dark);
+    font-weight: 600;
+    border-radius: 3px;
 }
 
 /*--------------------------------------------------------------
@@ -458,12 +459,11 @@ mark {
     }
 
     .bloc-chiffres {
-        transform: rotate(0deg) !important;
         margin: 10px 0;
     }
 
     .bloc-chiffres:hover {
-        transform: scale(1.05) !important;
+        transform: translateY(-3px);
     }
 }
 

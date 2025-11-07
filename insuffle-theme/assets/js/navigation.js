@@ -83,9 +83,8 @@
                     if (navigation && navigation.classList.contains('toggled')) {
                         e.preventDefault();
 
-                        // Toggle submenu visibility
-                        const isVisible = submenu.style.display === 'flex';
-                        submenu.style.display = isVisible ? 'none' : 'flex';
+                        // Toggle submenu visibility using CSS class
+                        submenu.classList.toggle('expanded');
                     }
                 });
             }
