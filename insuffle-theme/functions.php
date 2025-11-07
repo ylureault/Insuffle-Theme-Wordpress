@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Theme Constants
  */
-define( 'INSUFFLE_VERSION', '1.0.0' );
+define( 'INSUFFLE_VERSION', '1.0.1' );
 define( 'INSUFFLE_THEME_DIR', get_template_directory() );
 define( 'INSUFFLE_THEME_URI', get_template_directory_uri() );
 

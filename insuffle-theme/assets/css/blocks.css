@@ -87,9 +87,18 @@
 --------------------------------------------------------------*/
 
 /* Clean spacing between sections - NO WAVES */
-.wp-block-group.alignfull {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+.wp-block-group.alignfull,
+.wp-block-cover.alignfull,
+section.alignfull,
+.bloc-chiffres-container {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
+}
+
+/* Specific override for groups with background colors */
+.wp-block-group.has-background {
+    padding-top: 6rem !important;
+    padding-bottom: 6rem !important;
 }
 
 /* Optional: Simple line separator if needed */
@@ -100,19 +109,30 @@
     margin: 4rem 0;
 }
 
-/* Deprecated wave classes - kept for compatibility but disabled */
+/* Deprecated wave classes - FORCE DISABLE */
 .tw-top-shape-organic,
 .tw-bottom-shape-organic,
 .tw-top-shape-halftone,
-.tw-bottom-shape-halftone {
-    /* Waves removed - clean modern design */
+.tw-bottom-shape-halftone,
+[class*="shape-organic"],
+[class*="shape-halftone"] {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .tw-top-shape-organic::before,
 .tw-bottom-shape-organic::after,
 .tw-top-shape-halftone::before,
-.tw-bottom-shape-halftone::after {
+.tw-bottom-shape-halftone::after,
+[class*="shape-organic"]::before,
+[class*="shape-organic"]::after,
+[class*="shape-halftone"]::before,
+[class*="shape-halftone"]::after {
     display: none !important;
+    content: none !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
 }
 
 /*--------------------------------------------------------------
@@ -417,13 +437,21 @@ p.has-text-align-center.has-large-font-size {
     width: 100%;
 }
 
-/* Mark/highlight elements - USE SPARINGLY (1 per section max) */
-mark {
-    display: inline;
-    padding: 3px 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(255, 222, 89, 0.3) 60%);
-    color: inherit;
-    font-weight: 700;
+/* Mark/highlight elements - OVERRIDE inline styles */
+mark,
+mark[style*="background-color"] {
+    display: inline !important;
+    padding: 3px 0 !important;
+    background: linear-gradient(180deg, transparent 60%, rgba(255, 222, 89, 0.3) 60%) !important;
+    color: inherit !important;
+    font-weight: 700 !important;
+    border-radius: 0 !important;
+}
+
+/* Force remove yellow backgrounds from marks */
+.has-inline-color mark,
+mark.has-inline-color {
+    background-color: transparent !important;
 }
 
 /*--------------------------------------------------------------
@@ -440,23 +468,29 @@ mark {
     }
 
     /* Reduced section spacing on tablet */
-    .wp-block-group.alignfull {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
+    .wp-block-group.alignfull,
+    .wp-block-cover.alignfull,
+    .wp-block-group.has-background,
+    section.alignfull {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
     }
 
     /* Stats blocks responsive */
     .bloc-chiffres,
     .wp-block-column.bloc-chiffres {
-        min-height: 280px;
+        min-height: 280px !important;
     }
 }
 
 @media (max-width: 768px) {
     /* Mobile section spacing */
-    .wp-block-group.alignfull {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+    .wp-block-group.alignfull,
+    .wp-block-cover.alignfull,
+    .wp-block-group.has-background,
+    section.alignfull {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
     }
 
     .wp-block-gallery.has-nested-images {
